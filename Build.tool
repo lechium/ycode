@@ -9,7 +9,9 @@ identifier=com.asentientbot.ycode
 inPath="$PWD/$codeName.m"
 appPath="$PWD/$name.app"
 
-frameworkPath="/Applications/Xcode.app/Contents/SharedFrameworks"
+xcPath=$(/usr/bin/xcode-select -p)
+dName=$(/usr/bin/dirname $xcPath)
+frameworkPath="${dName}/SharedFrameworks"
 frameworkFlags="-rpath $frameworkPath -F $frameworkPath -framework DVTKit -framework DVTFoundation"
 
 rm -rf "$appPath"
